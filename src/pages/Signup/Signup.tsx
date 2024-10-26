@@ -6,11 +6,11 @@ import './Signup.css';
 export default function SignupPage() {
     const { signup } = useAuth();
     const navigate = useNavigate();
-    const [email, setEmail] = useState('');
-    const [password, setPassword] = useState('');
-    const [confirmPassword, setConfirmPassword] = useState('');
-    const [error, setError] = useState('');
-    const [loading, setLoading] = useState(false); // Loading state
+    const [email, setEmail] = useState<string>(''); // Definindo tipo para email
+    const [password, setPassword] = useState<string>(''); // Definindo tipo para password
+    const [confirmPassword, setConfirmPassword] = useState<string>(''); // Definindo tipo para confirmPassword
+    const [error, setError] = useState<string>(''); // Definindo tipo para error
+    const [loading, setLoading] = useState<boolean>(false); // Definindo tipo para loading
 
     const passwordRequirements = {
         length: password.length >= 8,
@@ -22,10 +22,10 @@ export default function SignupPage() {
 
     const allRequirementsMet = Object.values(passwordRequirements).every(Boolean);
 
-    const handleSubmit = async (event) => {
+    const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => { // Adicionando tipo para event
         event.preventDefault();
         setError('');
-        setLoading(true); // Start loading
+        setLoading(true); // Iniciar carregamento
 
         if (!email || !password || !confirmPassword) {
             setError('Por favor, preencha todos os campos.');
@@ -46,7 +46,7 @@ export default function SignupPage() {
         }
 
         try {
-            const res = await signup(email, password); // Handle async signup
+            const res = await signup(email, password); // Tratar a inscrição assíncrona
             if (res) {
                 setError(res);
                 setLoading(false);
@@ -118,11 +118,11 @@ export default function SignupPage() {
                         {error && <p className="error-message">{error}</p>}
                         <input
                             type="submit"
-                            value={loading ? "Criando Conta..." : "Criar Conta"} // Show loading text
+                            value={loading ? "Criando Conta..." : "Criar Conta"} // Mostrar texto de carregamento
                             role="button"
                             aria-label="Criar Conta"
                             className="btn-enviar"
-                            disabled={loading} // Disable button while loading
+                            disabled={loading} // Desabilitar botão enquanto carrega
                         />
                     </form>
                 </section>
