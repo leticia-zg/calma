@@ -12,19 +12,14 @@ export default function Home() {
     respostas.forEach((resposta) => {
       resposta.onclick = () => {
         const duvidas = resposta.closest("article")?.nextElementSibling as HTMLElement;
+
         if (duvidas) {
           duvidas.classList.toggle("teste");
 
-          // Altere o caminho do arquivo de imagem conforme necessário
           (resposta as HTMLImageElement).src = duvidas.classList.contains("teste")
             ? "/imgs/seta-cima.png"
             : "/imgs/seta-para-baixo (2).png";
         }
-
-        // Aqui você pode ter outras manipulações que resultem em números
-        // Exemplo de manipulação que pode gerar erro
-        const valorString: string = (resposta as HTMLElement).getAttribute("data-valor") || "0";
-        const valorNumber: number = parseFloat(valorString); // Converte para número
       };
     });
   }, []);
@@ -57,11 +52,11 @@ export default function Home() {
               role="img" />
             <div>
               <h3>Sobre</h3>
-              <p>
-                A <span>Oficina Virtual</span>surgiu da necessidade de fornecer para nossos clientes um diagnóstico
+              <p >
+                A <span >Oficina Virtual </span>surgiu da necessidade de fornecer para nossos clientes um diagnóstico
                 do veículo de forma rápida, segura e eficaz! Além do serviço de autodiagnóstico, contamos também
                 com: serviço de guincho, revisão programada, autopeças online, mecânicos parceiros...
-              </p>
+              </p >
             </div>
           </section>
         </div>
@@ -81,8 +76,7 @@ export default function Home() {
               <h3>Assistência à panes</h3>
               <p>
                 Problemas mecânicos, elétricos <br />
-                ou outras emergências.
-              </p>
+                ou outras emergências.</p>
             </div>
           </article>
           <article className="cont-beneficios">
@@ -91,21 +85,19 @@ export default function Home() {
               <h3>Descontos exclusivos</h3>
               <p>
                 Incluso compras e serviços, lazer <br />
-                entretenimento, educação.
-              </p>
+                entretenimento, educação.</p>
             </div>
             <div className="beneficios" id="servicos">
               <img src="/imgs/carrinho.png" alt="carro" />
               <h3>Carro de reserva</h3>
               <p>
                 Utilização variada dependendo <br />do período
-                estipulado na apólice.
-              </p>
+                estipulado na apólice.</p>
             </div>
           </article>
         </section>
 
-        <p className="confira">Confira nossos serviços</p>
+        <p className="confira" >Confira nossos serviços</p>
         <section className="servicos">
           <article className="primeiros-servicos">
             <div className="servico">
@@ -131,7 +123,7 @@ export default function Home() {
               <h3>Mecânicos Parceiros</h3>
               <p>Confira nossos parceiros.</p>
             </div>
-            <div className="servico">
+            <div className="servico" >
               <a href="https://chatoficinavirtual.netlify.app/">
                 <img src="/imgs/notediagnostico.jpg" alt="diagnóstico" />
               </a>
@@ -163,24 +155,24 @@ export default function Home() {
               contato com um de nossos mecânicos parceiros.</p>
           </div>
           <article role="article" className="article">
-            <p className="p-pergunta">Quais serviços estão inclusos no seguro?</p>
+            <p className="p-pergunta">Como faço para realizar o auto diagnóstico?</p>
             <img src="/imgs/seta-para-baixo (2).png" className="seta-baixo" alt="seta para baixo" role="button"
               aria-expanded="false" />
           </article>
           <div className="div-resposta">
-            <p className="respostas">O seguro de automóvel inclui serviços de guincho, assistência em casos de pane e
-              outros serviços disponíveis conforme a apólice.
-            </p>
+            <p className="respostas">Para realizar o auto diagnóstico acesse a página de serviços e vá para a página de
+              auto diagnósticos.
+              Insira os problemas notados no seu veículo e receba de imediato um diagnóstico prévio.</p>
           </div>
           <article role="article" className="article">
-            <p className="p-pergunta">Como posso me tornar um segurado?</p>
+            <p className="p-pergunta">Como faço para me tornar um segurado?</p>
             <img src="/imgs/seta-para-baixo (2).png" className="seta-baixo" alt="seta para baixo" role="button"
               aria-expanded="false" />
           </article>
           <div className="div-resposta">
-            <p className="respostas">Para se tornar um segurado da Porto Seguro, entre em contato conosco pelo
-              WhatsApp ou pelo telefone.
-              Nós ajudaremos a iniciar o seu processo de adesão.</p>
+            <p className="respostas">Para se tornar um segurado porto, basta entrar em contato com um corretor
+              autorizado ou ligar para a central de atendimento.
+              Eles irão orientá-lo sobre os planos disponíveis e o processo de contratação.</p>
           </div>
         </section>
       </main>
