@@ -1,4 +1,3 @@
-// src/pages/Guincho/Guincho.tsx
 import { useState } from 'react';
 import './Guincho.css';
 import Footer from '../../Components/Footer/Footer';
@@ -72,13 +71,24 @@ export default function Guincho() {
     };
 
     const confirmRequest = () => {
-        // Aqui você pode adicionar lógica para enviar a solicitação
         setSuccessModalVisible(true); // Abre o modal de sucesso
         setModalVisible(false); // Fecha o modal de confirmação
     };
 
+    const resetForm = () => {
+        setFormData({
+            origem: '',
+            destino: '',
+            placa: '',
+            cor: '',
+            ano: '',
+            telefone: '',
+        });
+    };
+
     const closeSuccessModal = () => {
-        window.location.reload(); // Recarrega a página
+        resetForm(); // Limpa o formulário
+        setSuccessModalVisible(false); // Fecha o modal de sucesso
     };
 
     return (
